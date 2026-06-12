@@ -104,7 +104,7 @@
       display: flex;
       align-items: flex-start;
       justify-content: flex-end;
-      padding: 120px 40px 0;
+      padding: 120px 120px 0 40px;
       overflow: hidden;
     }
 
@@ -726,7 +726,17 @@
       }
 
       #hero {
-        padding: 0 20px 60px;
+        height: 100vw;
+        min-height: unset;
+        max-height: 520px;
+        padding: 0 20px 0;
+        align-items: flex-end;
+        justify-content: flex-start;
+      }
+
+      .hero-content {
+        padding-bottom: 32px;
+        max-width: 100%;
       }
 
       .hero-scroll {
@@ -800,7 +810,7 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#" class="nav-logo">Shizuoka Photo</a>
+    <a href="#" class="nav-logo">Journey Snap Japan</a>
     <a href="#cta" class="nav-cta">Book Now</a>
   </nav>
 
@@ -1019,15 +1029,14 @@
       </h2>
       <p class="cta-sub reveal">If that sounds right, reach out.</p>
       <div class="cta-buttons reveal">
-        <a href="mailto:endo_9852@yahoo.co.jp?subject=Travel Photography Inquiry" class="btn-primary">BOOK NOW</a>
-        <a href="mailto:endo_9852@yahoo.co.jp?subject=Travel Photography Inquiry" class="btn-secondary">Contact Us</a>
+        <a href="https://journey-snap-japan.youcanbook.me" class="btn-primary" target="_blank">BOOK NOW</a>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p class="footer-logo">Shizuoka Photo</p>
+    <p class="footer-logo">Journey Snap Japan</p>
     <p class="footer-copy">&copy; 2026 Masashi Endo. All rights reserved.</p>
   </footer>
 
@@ -1052,10 +1061,4 @@
         if (entry.isIntersecting) {
           entry.target.classList.add('active');
         }
-      });
-    }, { threshold: 0.8 });
-
-    painLines.forEach(el => painObserver.observe(el));
-  </script>
-</body>
-</html>
+      
