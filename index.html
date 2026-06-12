@@ -706,6 +706,39 @@
       flex-wrap: wrap;
     }
 
+    .cta-contact {
+      margin-bottom: 40px;
+    }
+
+    .cta-contact-label {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      color: rgba(250,250,248,0.45);
+      margin-bottom: 14px;
+    }
+
+    .cta-contact-links {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+    }
+
+    .cta-contact-links a {
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(250,250,248,0.7);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(250,250,248,0.25);
+      padding-bottom: 2px;
+      transition: color 0.3s, border-color 0.3s;
+    }
+
+    .cta-contact-links a:hover {
+      color: var(--white);
+      border-color: var(--white);
+    }
+
     .btn-primary {
       display: inline-block;
       font-size: 13px;
@@ -1098,6 +1131,13 @@
         You want more than<br>tourist photos.
       </h2>
       <p class="cta-sub reveal">If that sounds right, reach out.</p>
+      <div class="cta-contact reveal">
+        <p class="cta-contact-label">Click here for questions.</p>
+        <div class="cta-contact-links">
+          <a href="mailto:info@cobacco.jp">Mail</a>
+          <a href="https://www.instagram.com/cobacco_masashi/" target="_blank">Instagram</a>
+        </div>
+      </div>
       <div class="cta-buttons reveal">
         <a href="https://journey-snap-japan.youcanbook.me" class="btn-primary" target="_blank">BOOK NOW</a>
       </div>
