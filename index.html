@@ -729,14 +729,14 @@
         height: 100vw;
         min-height: unset;
         max-height: 520px;
-        padding: 0 20px 0;
-        align-items: flex-end;
-        justify-content: flex-start;
+        padding: 80px 24px 0 20px;
+        align-items: flex-start;
+        justify-content: flex-end;
       }
 
       .hero-content {
-        padding-bottom: 32px;
-        max-width: 100%;
+        max-width: 55%;
+        text-align: left;
       }
 
       .hero-scroll {
@@ -1061,4 +1061,10 @@
         if (entry.isIntersecting) {
           entry.target.classList.add('active');
         }
-      
+      });
+    }, { threshold: 0.8 });
+
+    painLines.forEach(el => painObserver.observe(el));
+  </script>
+</body>
+</html>
