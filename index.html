@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Photography Shizuoka | Don't just visit. Remember it.</title>
+  <meta name="description" content="A professional photographer joins your Shizuoka trip. From ¥25,000 / 60 min. Kunozan Toshogu, Mt. Fuji, tea fields, and beyond.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --black: #1a1a1a;
+      --white: #fafaf8;
+      --bg: #fafaf8;
+      --bg-alt: #f3f2ef;
+      --gray-dark: #f0efec;
+      --gray-mid: #dddbd6;
+      --gray-light: #999;
+      --gray-muted: #b0aea9;
+      --text: #1a1a1a;
+      --text-sub: #6b6966;
+      --accent: #5c5c5c;
+      --accent-dark: #3a3a3a;
+      --border: #e0ded9;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      mix-blend-mode: normal;
+    }
+
+    nav::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(250,250,248,0.95) 0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .nav-logo {
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    .nav-cta {
+      position: relative;
+      z-index: 1;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 10px 20px;
+      transition: all 0.3s;
+      background: white;
+    }
+
+    .nav-cta:hover {
+      background: var(--text);
+      color: var(--white);
+      border-color: var(--text);
+    }
+
+    /* ─── HERO ─── */
+    #hero {
+      position: relative;
+      height: 100svh;
+      min-height: 600px;
+      display: flex;
+      align-items: flex-end;
+      padding: 0 40px 80px;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-color: var(--bg-alt);
+      background-image:
+        linear-gradient(to bottom, rgba(250,250,248,0.15) 0%, rgba(250,250,248,0.7) 100%);
+    }
+
+    /* placeholder for hero image — replace src with actual photo */
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.75;
+      filter: grayscale(15%);
+    }
+
+    /* hero image placeholder — visible when no image */
+    .hero-img-placeholder {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #e8e6e1 0%, #f0eeea 50%, #e4e2dd 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-img-placeholder span {
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      color: var(--gray-muted);
+      text-transform: uppercase;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
+
+    .hero-label {
+      font-size: clamp(28px, 5vw, 56px);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 24px;
+      display: block;
+      font-weight: 300;
+      line-height: 1.2;
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      color: var(--text-sub);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      right: 40px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray-muted);
+    }
+
+    .hero-scroll::after {
+      content: '';
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(245,243,239,0.4), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+
+    .hero-scroll::after {
+      background: linear-gradient(to bottom, var(--gray-muted), transparent);
+    }
+
+    @keyframes scrollLine {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(0.5); }
+    }
+
+    /* ─── SECTION BASE ─── */
+    section {
+      padding: 120px 40px;
+    }
+
+    .section-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-number {
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      color: var(--gray-muted);
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      display: block;
+    }
+
+    /* ─── PAIN ─── */
+    #pain {
+      background: var(--bg-alt);
+    }
+
+    .pain-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .pain-line {
+      font-size: clamp(20px, 3.5vw, 36px);
+      font-weight: 300;
+      line-height: 1.6;
+      color: rgba(26,26,26,0.2);
+      font-family: 'Noto Sans JP', sans-serif;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.4s;
+    }
+
+    .pain-line:last-child {
+      border-bottom: none;
+    }
+
+    .pain-line.active,
+    .pain-line:hover {
+      color: var(--text);
+    }
+
+    /* ─── SOLUTION ─── */
+    #solution {
+      background: var(--bg);
+    }
+
+    .solution-lead {
+      font-size: clamp(24px, 4vw, 42px);
+      font-weight: 300;
+      line-height: 1.5;
+      margin-bottom: 60px;
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text);
+    }
+
+    .solution-lead strong {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .solution-body {
+      font-size: 15px;
+      color: var(--text-sub);
+      margin-bottom: 56px;
+      line-height: 1.9;
+      max-width: 600px;
+    }
+
+    .solution-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .solution-tag {
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      color: var(--text-sub);
+      padding: 10px 20px;
+    }
+
+    /* ─── PHOTOGRAPHER PROFILE ─── */
+    .photographer-block {
+      margin-top: 64px;
+      padding-top: 56px;
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .photographer-photo {
+      width: 200px;
+      height: 240px;
+      object-fit: cover;
+      object-position: top;
+      filter: grayscale(8%);
+    }
+
+    .photographer-photo-placeholder {
+      width: 200px;
+      height: 240px;
+      background: linear-gradient(135deg, #e8e6e1 0%, #ededea 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photographer-photo-placeholder span {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: var(--gray-muted);
+      text-transform: uppercase;
+      writing-mode: vertical-rl;
+    }
+
+    .photographer-info {
+      padding-top: 8px;
+    }
+
+    .photographer-label {
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gray-muted);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .photographer-name {
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      margin-bottom: 24px;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    .photographer-bio {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 2;
+      max-width: 480px;
+    }
+
+    @media (max-width: 640px) {
+      .photographer-block {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .photographer-photo,
+      .photographer-photo-placeholder {
+        width: 120px;
+        height: 144px;
+      }
+    }
+
+    /* ─── PLAN ─── */
+    #plan {
+      background: var(--bg-alt);
+    }
+
+    .plan-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2px;
+      margin-bottom: 40px;
+    }
+
+    .plan-card {
+      background: var(--bg);
+      padding: 40px 32px;
+      position: relative;
+      transition: background 0.3s;
+      border: 1px solid transparent;
+    }
+
+    .plan-card:hover {
+      border-color: var(--border);
+    }
+
+    .plan-card.featured {
+      background: var(--text);
+      color: var(--white);
+    }
+
+    .plan-card.featured .plan-duration,
+    .plan-card.featured .plan-specs {
+      color: rgba(250,250,248,0.55);
+    }
+
+    .plan-card.featured .plan-divider {
+      background: rgba(250,250,248,0.2);
+    }
+
+    .plan-card.featured::before {
+      content: 'POPULAR';
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      color: var(--gray-muted);
+      border: 1px solid rgba(250,250,248,0.3);
+      padding: 4px 8px;
+    }
+
+    .plan-name {
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .plan-duration {
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      color: var(--gray-light);
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .plan-price {
+      font-size: 36px;
+      font-weight: 300;
+      margin-bottom: 4px;
+    }
+
+    .plan-price span {
+      font-size: 16px;
+      color: var(--gray-light);
+    }
+
+    .plan-divider {
+      width: 32px;
+      height: 1px;
+      background: var(--border);
+      margin: 24px 0;
+    }
+
+    .plan-specs {
+      font-size: 13px;
+      color: var(--text-sub);
+      line-height: 1.8;
+    }
+
+    .plan-option {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 24px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .plan-option-label {
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      color: var(--text);
+    }
+
+    .plan-option-price {
+      font-size: 18px;
+      color: var(--text);
+    }
+
+    .plan-note {
+      margin-top: 28px;
+      font-size: 12px;
+      color: var(--gray-muted);
+      letter-spacing: 0.05em;
+      line-height: 1.8;
+    }
+
+    /* ─── WORKS ─── */
+    #works {
+      background: var(--bg-alt);
+      padding-bottom: 80px;
+    }
+
+    .works-title {
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 300;
+      font-family: 'Noto Sans JP', sans-serif;
+      margin-bottom: 60px;
+      color: var(--text);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 220px;
+      gap: 4px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      position: relative;
+      background: var(--gray-mid);
+    }
+
+    .gallery-item:nth-child(1) { grid-column: span 8; grid-row: span 2; }
+    .gallery-item:nth-child(2) { grid-column: span 4; }
+    .gallery-item:nth-child(3) { grid-column: span 4; }
+    .gallery-item:nth-child(4) { grid-column: span 4; }
+    .gallery-item:nth-child(5) { grid-column: span 4; }
+    .gallery-item:nth-child(6) { grid-column: span 4; }
+    .gallery-item:nth-child(7) { grid-column: span 12; }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      filter: grayscale(10%);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.04);
+    }
+
+    /* placeholder tiles when no images */
+    .gallery-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #e2e0db 0%, #e8e6e1 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .gallery-placeholder .ph-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--gray-muted);
+      text-transform: uppercase;
+    }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 12px 16px;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(26,26,26,0.6);
+      background: linear-gradient(to top, rgba(250,250,248,0.7) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .gallery-item:hover .gallery-caption {
+      opacity: 1;
+    }
+
+    /* ─── FLOW ─── */
+    #flow {
+      background: var(--bg);
+    }
+
+    .flow-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin-top: 60px;
+    }
+
+    .flow-step {
+      padding: 32px 24px;
+      background: var(--bg-alt);
+      position: relative;
+    }
+
+    .flow-step::after {
+      content: '→';
+      position: absolute;
+      right: -12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray-muted);
+      font-size: 18px;
+      z-index: 1;
+    }
+
+    .flow-step:last-child::after {
+      display: none;
+    }
+
+    .flow-num {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--text-sub);
+      margin-bottom: 16px;
+    }
+
+    .flow-label {
+      font-size: 15px;
+      font-weight: 400;
+      margin-bottom: 8px;
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text);
+    }
+
+    .flow-sub {
+      font-size: 12px;
+      color: var(--text-sub);
+      line-height: 1.7;
+    }
+
+    /* ─── CTA ─── */
+    #cta {
+      background: var(--text);
+      text-align: center;
+      padding: 140px 40px;
+    }
+
+    .cta-title {
+      font-size: clamp(28px, 5vw, 56px);
+      font-weight: 300;
+      font-family: 'Noto Sans JP', sans-serif;
+      line-height: 1.4;
+      margin-bottom: 16px;
+      color: var(--white);
+    }
+
+    .cta-sub {
+      font-size: 14px;
+      color: rgba(250,250,248,0.45);
+      margin-bottom: 56px;
+      letter-spacing: 0.05em;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--text);
+      background: var(--white);
+      padding: 18px 48px;
+      transition: all 0.3s;
+      font-weight: 500;
+    }
+
+    .btn-primary:hover {
+      background: var(--bg-alt);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--white);
+      border: 1px solid rgba(250,250,248,0.25);
+      padding: 18px 48px;
+      transition: all 0.3s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--white);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 40px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      background: var(--bg);
+    }
+
+    .footer-logo {
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray-muted);
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: var(--gray-muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 768px) {
+      nav {
+        padding: 16px 20px;
+      }
+
+      section {
+        padding: 80px 20px;
+      }
+
+      #hero {
+        padding: 0 20px 60px;
+      }
+
+      .hero-scroll {
+        display: none;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 160px;
+      }
+
+      .gallery-item:nth-child(n) {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+
+      .gallery-item:nth-child(1) {
+        grid-column: span 2;
+        grid-row: span 1;
+      }
+
+      .flow-steps {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+
+      .flow-step::after {
+        content: '↓';
+        right: auto;
+        left: 50%;
+        top: auto;
+        bottom: -16px;
+        transform: translateX(-50%);
+      }
+
+      .plan-grid {
+        grid-template-columns: 1fr;
+      }
+
+      footer {
+        padding: 32px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-cta { display: none; }
+    }
+
+    /* ─── FADE-IN ANIMATION ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Shizuoka Photo</a>
+    <a href="#cta" class="nav-cta">Book Now</a>
+  </nav>
+
+  <!-- 01 / HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+
+    <img class="hero-img" src="images/hero.jpg" alt="Travel photography in Shizuoka">
+
+    <div class="hero-content">
+      <h1 class="hero-label">Travel Photography<br>Shizuoka</h1>
+      <p class="hero-sub">Personal travel photography&nbsp;·&nbsp;from ¥25,000 / 60 min</p>
+    </div>
+
+    <div class="hero-scroll">Scroll</div>
+  </section>
+
+  <!-- 02 / PAIN -->
+  <section id="pain">
+    <div class="section-inner">
+      <span class="section-number">02 — Why</span>
+      <div class="pain-lines">
+        <p class="pain-line reveal">Most of the photos you took were just scenery.</p>
+        <p class="pain-line reveal reveal-delay-1">Nobody thought to get a shot of everyone together.</p>
+        <p class="pain-line reveal reveal-delay-2">You remember the trip. The photos don't show it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 / SOLUTION -->
+  <section id="solution">
+    <div class="section-inner">
+      <span class="section-number">03 — Service</span>
+      <p class="solution-lead reveal">
+        A professional photographer<br>
+        <strong>joins your journey.</strong>
+      </p>
+      <p class="solution-body reveal">
+        Shrines, back alleys, a table full of food you can't name yet.<br>
+        We follow your pace and capture what actually happened — not just what's on the tourist map.
+      </p>
+      <div class="solution-tags reveal">
+        <span class="solution-tag">Walk-Along</span>
+        <span class="solution-tag">Location Shoot</span>
+        <span class="solution-tag">Both Available</span>
+      </div>
+
+      <!-- Photographer profile -->
+      <div class="photographer-block reveal">
+        <img class="photographer-photo" src="images/photographer.jpg" alt="Masashi Endo">
+        <div class="photographer-info">
+          <span class="photographer-label">Photographer</span>
+          <p class="photographer-name">Masashi Endo</p>
+          <p class="photographer-bio">
+            Based in Shizuoka. I shoot corporate branding, startups,<br>
+            and people in the middle of doing something real.<br><br>
+            Travel photography, for me, isn't about souvenirs.<br>
+            It's the quality of light that afternoon. The way someone<br>
+            laughed at something unexpected. A face caught looking<br>
+            the other way. Those are the ones worth keeping.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 04 / PLAN -->
+  <section id="plan">
+    <div class="section-inner">
+      <span class="section-number">04 — Pricing</span>
+
+      <div class="plan-grid">
+        <!-- SNAP -->
+        <div class="plan-card reveal">
+          <p class="plan-name">SNAP</p>
+          <p class="plan-duration">60 min &nbsp;·&nbsp; 1〜2 spots</p>
+          <p class="plan-price">¥25,000<span></span></p>
+          <div class="plan-divider"></div>
+          <p class="plan-specs">
+            30+ photos delivered<br>
+            Quick, light, no fuss.
+          </p>
+        </div>
+
+        <!-- WALK -->
+        <div class="plan-card featured reveal reveal-delay-1">
+          <p class="plan-name">WALK</p>
+          <p class="plan-duration">120 min &nbsp;·&nbsp; 2〜3 spots</p>
+          <p class="plan-price">¥35,000<span></span></p>
+          <div class="plan-divider"></div>
+          <p class="plan-specs">
+            60+ photos delivered<br>
+            Moving through the city at your pace.
+          </p>
+        </div>
+
+        <!-- STORY -->
+        <div class="plan-card reveal reveal-delay-2">
+          <p class="plan-name">STORY</p>
+          <p class="plan-duration">180 min &nbsp;·&nbsp; 3〜4 spots</p>
+          <p class="plan-price">¥55,000<span></span></p>
+          <div class="plan-divider"></div>
+          <p class="plan-specs">
+            90+ photos delivered<br>
+            A full day, fully documented.
+          </p>
+        </div>
+      </div>
+
+      <!-- 市外オプション -->
+      <div class="plan-option reveal">
+        <div>
+          <p class="plan-option-label">Out-of-city add-on &nbsp;· 1+ location</p>
+          <p style="font-size:12px; color:var(--gray-muted); margin-top:4px;">Mt. Fuji · Tea Fields · Izu Peninsula</p>
+        </div>
+        <p class="plan-option-price">+ ¥12,000~</p>
+      </div>
+
+      <p class="plan-note reveal">
+        * Flat rate regardless of group size — no per-person fee.<br>
+        Split across a group of 6, that's ¥4,000~ per person.
+      </p>
+    </div>
+  </section>
+
+  <!-- 05 / WORKS -->
+  <section id="works">
+    <div class="section-inner">
+      <span class="section-number">05 — Works</span>
+      <h2 class="works-title reveal">From the field.</h2>
+
+      <div class="gallery-grid">
+
+        <!-- Item 1: large -->
+        <div class="gallery-item reveal">
+          <img src="images/works-01.jpg" alt="Kunozan Toshogu">
+          <span class="gallery-caption">Kunozan Toshogu</span>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="gallery-item reveal reveal-delay-1">
+          <img src="images/works-02.jpg" alt="Sunpu Castle Park">
+          <span class="gallery-caption">Sunpu Castle Park</span>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="gallery-item reveal reveal-delay-2">
+          <img src="images/works-03.jpg" alt="Shizuoka Streets">
+          <span class="gallery-caption">Shizuoka Streets</span>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="gallery-item reveal reveal-delay-1">
+          <img src="images/works-04.jpg" alt="Mt. Fuji Area">
+          <span class="gallery-caption">Mt. Fuji Area</span>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="gallery-item reveal reveal-delay-2">
+          <img src="images/works-05.jpg" alt="Tea Fields">
+          <span class="gallery-caption">Tea Fields</span>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="gallery-item reveal reveal-delay-3">
+          <img src="images/works-06.jpg" alt="Izu Peninsula">
+          <span class="gallery-caption">Izu Peninsula</span>
+        </div>
+
+        <!-- Item 7: full width -->
+        <div class="gallery-item reveal">
+          <img src="images/works-07.jpg" alt="On the road">
+          <span class="gallery-caption">On the road</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 / FLOW -->
+  <section id="flow">
+    <div class="section-inner">
+      <span class="section-number">06 — How it works</span>
+
+      <div class="flow-steps">
+        <div class="flow-step reveal">
+          <p class="flow-num">01</p>
+          <p class="flow-label">Get in touch</p>
+          <p class="flow-sub">Drop us a message via email</p>
+        </div>
+        <div class="flow-step reveal reveal-delay-1">
+          <p class="flow-num">02</p>
+          <p class="flow-label">Plan together</p>
+          <p class="flow-sub">We'll work out the date, route, and style</p>
+        </div>
+        <div class="flow-step reveal reveal-delay-2">
+          <p class="flow-num">03</p>
+          <p class="flow-label">Shoot day</p>
+          <p class="flow-sub">We meet on location and spend the time together</p>
+        </div>
+        <div class="flow-step reveal reveal-delay-3">
+          <p class="flow-num">04</p>
+          <p class="flow-label">Photos delivered</p>
+          <p class="flow-sub">All edited, in your hands within 3 days</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 / CTA -->
+  <section id="cta">
+    <div class="section-inner">
+      <h2 class="cta-title reveal">
+        You want more than<br>tourist photos.
+      </h2>
+      <p class="cta-sub reveal">If that sounds right, reach out.</p>
+      <div class="cta-buttons reveal">
+        <a href="mailto:endo_9852@yahoo.co.jp?subject=Travel Photography Inquiry" class="btn-primary">BOOK NOW</a>
+        <a href="mailto:endo_9852@yahoo.co.jp?subject=Travel Photography Inquiry" class="btn-secondary">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="footer-logo">Shizuoka Photo</p>
+    <p class="footer-copy">&copy; 2026 Masashi Endo. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Intersection Observer for reveal animations
+    const revealEls = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealEls.forEach(el => observer.observe(el));
+
+    // Pain lines: highlight on scroll
+    const painLines = document.querySelectorAll('.pain-line');
+    const painObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.8 });
+
+    painLines.forEach(el => painObserver.observe(el));
+  </script>
+</body>
+</html>
