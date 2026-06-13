@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact / Book — Journey Snap Japan</title>
+  <meta name="description" content="Book a travel photography session in Shizuoka. Send us your details and we'll get back to you within 24 hours.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --black: #1a1a1a;
+      --white: #fafaf8;
+      --bg: #fafaf8;
+      --bg-alt: #f3f2ef;
+      --gray-dark: #f0efec;
+      --gray-mid: #dddbd6;
+      --gray-light: #999;
+      --gray-muted: #b0aea9;
+      --text: #1a1a1a;
+      --text-sub: #6b6966;
+      --accent: #5c5c5c;
+      --accent-dark: #3a3a3a;
+      --border: #e0ded9;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(250,250,248,0.95) 0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .nav-logo {
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    .nav-back {
+      position: relative;
+      z-index: 1;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-sub);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-back:hover { color: var(--text); }
+
+    /* ─── PAGE ─── */
+    .contact-page {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    /* Left — info panel */
+    .contact-info {
+      background: var(--text);
+      padding: 140px 60px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+    }
+
+    .contact-info-top {}
+
+    .contact-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(250,250,248,0.4);
+      margin-bottom: 32px;
+      display: block;
+    }
+
+    .contact-title {
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 300;
+      color: var(--white);
+      font-family: 'Noto Sans JP', sans-serif;
+      line-height: 1.35;
+      margin-bottom: 32px;
+    }
+
+    .contact-desc {
+      font-size: 14px;
+      color: rgba(250,250,248,0.5);
+      line-height: 1.9;
+      max-width: 320px;
+      margin-bottom: 56px;
+    }
+
+    .contact-plans {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-plan-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(250,250,248,0.1);
+      color: rgba(250,250,248,0.65);
+    }
+
+    .contact-plan-row span:last-child {
+      color: rgba(250,250,248,0.4);
+    }
+
+    .contact-info-bottom {
+      font-size: 12px;
+      color: rgba(250,250,248,0.3);
+      line-height: 1.8;
+    }
+
+    /* Right — form */
+    .contact-form-wrap {
+      padding: 140px 60px 80px;
+      background: var(--bg);
+    }
+
+    .form-success {
+      display: none;
+      padding: 48px 0;
+    }
+
+    .form-success-title {
+      font-size: 22px;
+      font-weight: 300;
+      font-family: 'Noto Sans JP', sans-serif;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .form-success-sub {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.9;
+    }
+
+    .form-error-global {
+      display: none;
+      margin-bottom: 20px;
+      font-size: 13px;
+      color: #b00;
+      padding: 14px 16px;
+      background: #fff5f5;
+      border-left: 2px solid #b00;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-sub);
+      margin-bottom: 8px;
+    }
+
+    .form-input {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      padding: 14px 16px;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+
+    .form-input:focus { border-color: var(--text); }
+
+    .form-input[aria-invalid="true"] {
+      border-color: #b00;
+    }
+
+    .form-field-error {
+      font-size: 12px;
+      color: #b00;
+      margin-top: 5px;
+      display: block;
+      min-height: 16px;
+    }
+
+    .form-checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .form-checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .form-checkbox-label input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--text);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .form-disclaimer {
+      font-size: 12px;
+      color: var(--text-sub);
+      line-height: 1.9;
+      margin-bottom: 32px;
+      padding: 16px 20px;
+      background: var(--bg-alt);
+      border-left: 2px solid var(--border);
+    }
+
+    .form-submit {
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--text);
+      border: none;
+      padding: 18px 48px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+
+    .form-submit:hover { background: #333; }
+    .form-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* ─── FOOTER ─── */
+    .contact-footer {
+      grid-column: 1 / -1;
+      padding: 32px 60px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg);
+      font-size: 11px;
+      color: var(--gray-muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 900px) {
+      .contact-page {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-info {
+        position: static;
+        height: auto;
+        padding: 120px 24px 60px;
+      }
+
+      .contact-form-wrap {
+        padding: 60px 24px 80px;
+      }
+
+      .contact-footer {
+        padding: 24px;
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+      }
+
+      nav { padding: 16px 20px; }
+    }
+
+    @media (max-width: 480px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">Journey Snap Japan</a>
+    <a href="/" class="nav-back">← Back</a>
+  </nav>
+
+  <div class="contact-page">
+
+    <!-- Left: info -->
+    <div class="contact-info">
+      <div class="contact-info-top">
+        <span class="contact-eyebrow">Booking Request</span>
+        <h1 class="contact-title">Let's make<br>something worth<br>keeping.</h1>
+        <p class="contact-desc">Fill in your details and we'll get back to you within 24 hours to confirm the plan.</p>
+        <div class="contact-plans">
+          <div class="contact-plan-row">
+            <span>SNAP</span><span>60 min &nbsp;·&nbsp; ¥30,000</span>
+          </div>
+          <div class="contact-plan-row">
+            <span>WALK</span><span>120 min &nbsp;·&nbsp; ¥42,000</span>
+          </div>
+          <div class="contact-plan-row">
+            <span>STORY</span><span>180 min &nbsp;·&nbsp; ¥66,000</span>
+          </div>
+          <div class="contact-plan-row">
+            <span>Out-of-city add-on</span><span>+ ¥14,400~</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-info-bottom">
+        info@cobacco.jp<br>
+        Instagram: @cobacco_masashi
+      </div>
+    </div>
+
+    <!-- Right: form -->
+    <div class="contact-form-wrap">
+
+      <div class="form-success" id="form-success">
+        <p class="form-success-title">Request received.</p>
+        <p class="form-success-sub">We'll be in touch within 24 hours.<br>Check your inbox — and feel free to DM us on Instagram too.</p>
+      </div>
+
+      <div class="form-error-global" id="form-error-global" data-fs-error></div>
+
+      <form id="booking-form">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="name">Full Name *</label>
+            <input class="form-input" type="text" id="name" name="name" required placeholder="Your name" data-fs-field>
+            <span class="form-field-error" data-fs-error="name"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email *</label>
+            <input class="form-input" type="email" id="email" name="email" required placeholder="your@email.com" data-fs-field>
+            <span class="form-field-error" data-fs-error="email"></span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="phone">Phone / WhatsApp</label>
+            <input class="form-input" type="tel" id="phone" name="phone" placeholder="+1 234 567 8900" data-fs-field>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="instagram">Instagram</label>
+            <input class="form-input" type="text" id="instagram" name="instagram" placeholder="@yourhandle" data-fs-field>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="date">Preferred Date</label>
+          <input class="form-input" type="date" id="date" name="preferred_date" data-fs-field>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Plan</label>
+          <div class="form-checkbox-group">
+            <label class="form-checkbox-label">
+              <input type="checkbox" name="plan" value="SNAP"> SNAP — 60 min &nbsp;/&nbsp; ¥30,000
+            </label>
+            <label class="form-checkbox-label">
+              <input type="checkbox" name="plan" value="WALK"> WALK — 120 min &nbsp;/&nbsp; ¥42,000
+            </label>
+            <label class="form-checkbox-label">
+              <input type="checkbox" name="plan" value="STORY"> STORY — 180 min &nbsp;/&nbsp; ¥66,000
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="location1">Preferred Location 1</label>
+          <input class="form-input" type="text" id="location1" name="location_1" placeholder="e.g. Kunozan Toshogu" data-fs-field>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="location2">Preferred Location 2</label>
+          <input class="form-input" type="text" id="location2" name="location_2" placeholder="e.g. Sunpu Castle Park" data-fs-field>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="location3">Preferred Location 3</label>
+          <input class="form-input" type="text" id="location3" name="location_3" placeholder="e.g. Mt. Fuji area" data-fs-field>
+        </div>
+
+        <div class="form-disclaimer">
+          By submitting this form, you agree that we may use the information provided to respond to your inquiry. No payment is required at this stage — booking is confirmed after direct correspondence with our team.
+        </div>
+
+        <button class="form-submit" type="submit" data-fs-submit-btn>Send Request</button>
+      </form>
+    </div>
+
+    <footer class="contact-footer">
+      <span>Journey Snap Japan</span>
+      <span>&copy; 2026 Masashi Endo. All rights reserved.</span>
+    </footer>
+
+  </div>
+
+  <script>
+    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+    formspree('initForm', {
+      formElement: '#booking-form',
+      formId: 'xdavpgvj',
+      onSuccess: function () {
+        document.getElementById('booking-form').style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      }
+    });
+  </script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+</body>
+</html>
