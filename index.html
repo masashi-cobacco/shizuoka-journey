@@ -886,6 +886,98 @@
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
     .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ─── PHOTO STATEMENT ─── */
+    .photo-statement {
+      position: relative;
+      width: 100%;
+      height: 420px;
+      overflow: hidden;
+    }
+
+    .photo-statement img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      filter: brightness(0.45);
+    }
+
+    .photo-statement-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 40px;
+      gap: 20px;
+    }
+
+    .photo-statement-main {
+      font-size: clamp(22px, 3.5vw, 42px);
+      font-weight: 300;
+      line-height: 1.4;
+      color: #fff;
+      font-family: 'Noto Sans JP', sans-serif;
+      max-width: 800px;
+    }
+
+    .photo-statement-sub {
+      font-size: clamp(13px, 1.5vw, 16px);
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 768px) {
+      .photo-statement {
+        height: 300px;
+      }
+
+      .photo-statement-text {
+        padding: 0 24px;
+      }
+    }
+
+    /* ─── NOTES / POLICY ─── */
+    #notes {
+      background: var(--bg-alt);
+      padding: 80px 40px;
+    }
+
+    .notes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px 48px;
+      margin-top: 40px;
+    }
+
+    .notes-item-title {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-sub);
+      margin-bottom: 10px;
+    }
+
+    .notes-item-body {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.9;
+    }
+
+    @media (max-width: 768px) {
+      #notes {
+        padding: 80px 20px;
+      }
+
+      .notes-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -928,6 +1020,15 @@
       <div class="ticker-item"><img src="images/works-05.jpg" alt=""></div>
       <div class="ticker-item"><img src="images/works-06.jpg" alt=""></div>
       <div class="ticker-item"><img src="images/works-07.jpg" alt=""></div>
+    </div>
+  </div>
+
+  <!-- PHOTO STATEMENT -->
+  <div class="photo-statement">
+    <img src="images/works-01.jpg" alt="">
+    <div class="photo-statement-text">
+      <p class="photo-statement-main reveal">You're staying in Shizuoka —<br>but not a single photo with everyone in it.</p>
+      <p class="photo-statement-sub reveal">That's exactly what we're here for.</p>
     </div>
   </div>
 
@@ -1145,6 +1246,41 @@
   </section>
 
   <!-- FOOTER -->
+  <!-- NOTES / POLICY -->
+  <section id="notes">
+    <div class="section-inner">
+      <span class="section-number">Notes</span>
+      <div class="notes-grid">
+
+        <div class="notes-item reveal">
+          <p class="notes-item-title">Cancellation</p>
+          <p class="notes-item-body">Free cancellation up to 2 days before the shoot. 50% fee for cancellations the day before, and the full amount for same-day cancellations.</p>
+        </div>
+
+        <div class="notes-item reveal reveal-delay-1">
+          <p class="notes-item-title">Rain Policy</p>
+          <p class="notes-item-body">If it rains on shoot day, you may cancel free of charge — regardless of the standard cancellation policy.</p>
+        </div>
+
+        <div class="notes-item reveal reveal-delay-2">
+          <p class="notes-item-title">Photo Delivery</p>
+          <p class="notes-item-body">Photos are delivered via Google Drive, shared by email or DM on the same day as the shoot.</p>
+        </div>
+
+        <div class="notes-item reveal reveal-delay-3">
+          <p class="notes-item-title">Language</p>
+          <p class="notes-item-body">English is available. Feel free to reach out in English.</p>
+        </div>
+
+        <div class="notes-item reveal">
+          <p class="notes-item-title">Meeting Point</p>
+          <p class="notes-item-body">We'll agree on a time and meet you on location. No need to arrange transport.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <footer>
     <p class="footer-logo">Journey Snap Japan</p>
     <p class="footer-copy">&copy; 2026 Masashi Endo. All rights reserved.</p>
